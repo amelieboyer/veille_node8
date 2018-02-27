@@ -1,6 +1,7 @@
 {
 
-	"bonjour" : "hello",
-	"maison" : "house"
+	"accueil" : "home",
+	"vider" :  "empty",
+	"adresse" : "adress"
 
 }

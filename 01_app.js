@@ -44,9 +44,17 @@ app.set('view engine', 'ejs'); // générateur de template
 app.get('/:locale(en|fr)', (req,res) =>{
 
 	res.setLocale(req.params.locale)
-	console.log('res.__(bonjour) = ' + res.__('bonjour'))
+	console.log(res.__('accueil'))
+	console.log(res.__('vider'))
+	console.log(res.__('adresse'))
+
+	//let menu = []
 	
-	res.render('accueil.ejs')
+	//res.render('accueil.ejs')
+	//res.redirect('accueil.ejs');
+	res.redirect('/')
+
+
 
 })
 
