@@ -2,6 +2,10 @@
 
 	"accueil" : "accueil",
 	"vider" : "vider",
-	"adresse" : "adresse"
+	"adresse" : "adresse",
+	"nom" : "nom",
+	"prénom" : "prénom",
+	"téléphone" : "téléphone",
+	"courriel" : "courriel"
 
 }

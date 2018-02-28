@@ -2,6 +2,11 @@
 
 	"accueil" : "home",
 	"vider" :  "empty",
-	"adresse" : "adress"
+	"adresse" : "adress",
+	"nom" : "Last name",
+	"prénom" : "First name",
+	"téléphone" : "phone",
+	"courriel" : "email"
+
 
 }

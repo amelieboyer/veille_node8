@@ -8,6 +8,9 @@ const ObjectID = require('mongodb').ObjectID;
 app.use(bodyParser.urlencoded({extended: true}));
 /* on associe le moteur de vue au module «ejs» */
 app.use(express.static('public'));
+let cookieParser = require('cookie-parser');
+app.use(cookieParser())
+
 const i18n = require('i18n');
 i18n.configure({ 
    locales : ['fr', 'en'],
@@ -44,17 +47,29 @@ app.set('view engine', 'ejs'); // générateur de template
 app.get('/:locale(en|fr)', (req,res) =>{
 
 	res.setLocale(req.params.locale)
-	console.log(res.__('accueil'))
-	console.log(res.__('vider'))
-	console.log(res.__('adresse'))
 
-	//let menu = []
-	
-	//res.render('accueil.ejs')
-	//res.redirect('accueil.ejs');
+	let aMenu = [
+
+		console.log(res.__('accueil')),
+		console.log(res.__('vider')),
+		console.log(res.__('adresse')),
+		console.log(res.__('prénom')),
+		console.log(res.__('nom')),
+		console.log(res.__('téléphone')),
+		console.log(res.__('courriel'))
+
+
+	]
+
+	//res.cookie('langueChoisie', 'en')
+	req.cookies.langueChoisie
+	console.log('Cookies: ', req.cookies.langueChoisie)
+	console.log(req.cookies);
 	res.redirect('/')
-
-
+	//res.redirect(req.get("referer"))
+	//console.log(req)
+	console.log(req.headers);
+	console.log(req.originalUrl)
 
 })
 
