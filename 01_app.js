@@ -5,21 +5,22 @@ const app = express();
 const bodyParser= require('body-parser');
 const MongoClient = require('mongodb').MongoClient; // le pilote MongoDB
 const ObjectID = require('mongodb').ObjectID;
-app.use(bodyParser.urlencoded({extended: true}));
-/* on associe le moteur de vue au module «ejs» */
-app.use(express.static('public'));
-let cookieParser = require('cookie-parser');
-app.use(cookieParser())
 
+const cookieParser = require('cookie-parser');
 const i18n = require('i18n');
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(express.static('public'));
+
+/* i18n */
 i18n.configure({ 
    locales : ['fr', 'en'],
    cookie : 'langueChoisie', 
    directory : __dirname + '/locales'
 })
-app.use(i18n.init);
 
-/* Ajoute l'objet i18n à l'objet global «res» */
+app.use(cookieParser())
+app.use(i18n.init);
 
 
 
@@ -46,38 +47,25 @@ app.set('view engine', 'ejs'); // générateur de template
 
 app.get('/:locale(en|fr)', (req,res) =>{
 
+	console.log("req.params.locale = " + req.params.locale)
+	res.cookie('langueChoisie', req.params.locale)
 	res.setLocale(req.params.locale)
+	console.log(res.__('courriel'))
 
-	let aMenu = [
-
-		console.log(res.__('accueil')),
-		console.log(res.__('vider')),
-		console.log(res.__('adresse')),
-		console.log(res.__('prénom')),
-		console.log(res.__('nom')),
-		console.log(res.__('téléphone')),
-		console.log(res.__('courriel'))
-
-
-	]
-
-	//res.cookie('langueChoisie', 'en')
-	req.cookies.langueChoisie
 	console.log('Cookies: ', req.cookies.langueChoisie)
-	console.log(req.cookies);
-	res.redirect('/')
+
 	//res.redirect(req.get("referer"))
-	//console.log(req)
-	console.log(req.headers);
-	console.log(req.originalUrl)
+	res.redirect('/')
 
 })
 
 
 //////////////////////////////////////////
 app.get('/', function (req, res) {
-
- res.render('accueil.ejs')  
+	console.log('*****************');
+	console.log("req.cookies.langueChoisie = "  + req.cookies.langueChoisie)
+	//console.log(res.__('courriel'))
+	res.render('accueil.ejs')  
  
   });
 

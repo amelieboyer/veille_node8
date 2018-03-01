@@ -1,11 +1,11 @@
 {
 
-	"accueil" : "accueil",
-	"vider" : "vider",
-	"adresse" : "adresse",
-	"nom" : "nom",
-	"prénom" : "prénom",
-	"téléphone" : "téléphone",
-	"courriel" : "courriel"
+	"accueil" : "Accueil",
+	"vider" : "Vider",
+	"adresse" : "Adresse",
+	"nom" : "Nom",
+	"prénom" : "Prénom",
+	"téléphone" : "Téléphone",
+	"courriel" : "Courriel"
 
 }
