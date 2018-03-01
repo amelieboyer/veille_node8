@@ -54,8 +54,7 @@ app.get('/:locale(en|fr)', (req,res) =>{
 
 	console.log('Cookies: ', req.cookies.langueChoisie)
 
-	//res.redirect(req.get("referer"))
-	res.redirect('/')
+	res.redirect(req.get("referer"))
 
 })
 

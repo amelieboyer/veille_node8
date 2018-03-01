@@ -16,6 +16,17 @@
 			    <input type="text" name="recherche" 
 			    value="<%= (typeof recherche == 'undefined')? '' : recherche %>">
 			    <button><i class="fas fa-search"></i></button>
+			    <% if (getLocale() == 'fr') { %>
+
+			           <a href="/en">Changer de langue</a>
+
+			    <% } else { %>
+
+			   		<a href="/fr">Changer de langue</a>
+
+
+			    <% } %>
+
 			</form>
 		</div> <!-- .menu -->
 	</div> <!-- fin barre de menu -->
